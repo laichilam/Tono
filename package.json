@@ -1,0 +1,13 @@
+{
+
+  "scripts": {
+    "start": "react-scripts start",
+    "build-css": "tailwindcss build -i ./static/main.css -o ./static/mainout.css",
+    "watch-css": "tailwindcss build -i ./static/main.css -o ./static/mainout.css --watch",
+    "dev": "concurrently \"npm run watch-css\" \"npm start\""
+  },
+
+  "devDependencies": {
+    "tailwindcss": "^3.2.7"
+  }
+}

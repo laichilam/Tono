@@ -1,0 +1,38 @@
+//
+Version 1.0
+
+
+0.  Setup environment, Install Package
+    i.django/python :::CHECKED
+    ii.tailwind? :::CHECKED
+    iii. backend framework maybe? :::Django already a backend framework and we use tailwindcss as frontend, React next time maybe
+1.  Construct core app
+    i.base html to extend :::HALF WAY THROUGH
+    ii. topbar,
+        sidebar maybe,
+        and footer
+2.  Construct item(single todo list) app
+    decide a attributes list:
+        i.
+        ii.
+3.  Construct sub-item(an entry of todo list) app
+4.  Construct userprofile? app
+    i. sign up 
+    ii. log in
+    iii. log out
+    iv. user page
+    v. authentication part
+5.  Construct user dashboard app
+    i. differences between dashboard and userpage?
+6.  Extra functions to implement
+7.  QOL angle
+8.  UI improvement
+//
+
+Contributes:
+2.18 top bar almost finished / footer added / base html 70% done
+
+TBC::
+//
+            
+//

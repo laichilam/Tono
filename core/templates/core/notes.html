@@ -1,0 +1,31 @@
+{%extends './base.html'%}
+
+{%block title%}
+{%endblock%}
+
+{%block content%}
+<div class="bg-alu-main px-4">
+<!--showing a grid of all notes-->
+<div class="grid grid-cols-3 px-8 py-8 gap-6 bg-yellow-50 ">
+{%for note in notes%}
+    {%if note.complete == True%}
+    <a href="#" class="text-center rounded-xl hover:animate-pulse bg-alu-red">
+    {%else%}
+    <a href="#" class="text-center rounded-xl hover:bg-alu-btn bg-alu-netural ease-in duration-300">
+    {%endif%}
+    <p class="text-3xl text-semibold text-yellow-500 mt-4 mb-4">{{note.name}}</p>
+    <p class="text-xl text-red-300 mt-4 mb-4 px-2 whitespace-normal">* {{note.detail}}</p>
+    <p class="text-end text-xl text-red-500 p-2">Priority: {{note.priority}}</p>
+    </a>
+{%endfor%}
+</div>
+
+<!--buttons to CRUD-->
+<div class="flex justify-end bg-yellow-50 px-4 pt-2 pb-8 gap-2 ">
+    <a href="#" class="text-center text-white text-2xl rounded-2xl bg-green-500 px-4 py-2">New</a>
+    <a href="#" class="text-center text-white text-2xl rounded-2xl bg-yellow-900 px-4 py-2">Edit</a>
+    <a href="#" class="text-center text-black text-2xl rounded-2xl bg-red-600 px-4 py-2">Delete</a>
+</div>
+
+</div>
+{%endblock%}

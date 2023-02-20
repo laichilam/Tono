@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <link rel="stylesheet" href="{% static 'mainout.css' %}">
+
+        <title>{% block title %}{% endblock %}</title>
+    </head>
+
+    <body class="bg-alu-main">
+      <div id="chromeFix"></div>
+      <!-- This is the topside navbar -->
+      <nav class="w-full flex flex-wrap justify-between fixed">
+        
+        <div class="container-fluid w-full flex flex-wrap justify-between px-3 py-3 bg-alu-three rounded-b-lg shadow-lg">
+          <div class="inline-flex items-center">
+                <img src="{% static '/images/logo.png' %}" alt="myLogo"></img>
+                <a class="uppercase pl-3 text-4xl text-alu-btn font-extrabold" href="#">tono</a>
+                </div>
+
+                <div class="inline-flex justify-between whitespace-nowrap">
+                  <!-- Use m (margin) to control the distance between items -->
+                <button class="flex-1 text-center bg-alu-netural hover:bg-alu-btn text-alu-btn font-semibold py-2 px-4 m-3 rounded-full shadow-lg ease-in duration-200">
+                  Sign Up</button>
+                <button class="flex-1 text-center bg-alu-netural hover:bg-alu-btn text-alu-btn font-semibold py-2 px-4 m-3 rounded-full shadow-lg ease-in duration-200">
+                  Log In</button>
+                <button class="flex-1 text-center bg-alu-netural hover:bg-alu-btn text-alu-btn font-semibold py-2 px-4 m-3 rounded-full shadow-lg ease-in duration-200">
+                  Log Out
+                </button>
+                </div>
+
+              </div>
+      </nav>
+      <!-- This is the sidebar element -->
+      <div class="flex flex-row">
+        <div class="flex flex-col flex-wrap justify-items-center bg-alu-netural shadow-lg whitespace-nowrap w-96 h-full fixed mt-24">
+          <button class="text-alu-btn text-2xl hover:bg-alu-three border-b-2 border-alu-btn py-4">BTN1 BTN</button>
+          <button class="text-alu-btn text-2xl hover:bg-alu-three border-b-2 border-alu-btn py-4">BTN2 BTN</button>
+          <button class="text-alu-btn text-2xl hover:bg-alu-three border-b-2 border-alu-btn py-4">BTN2 BTN</button>
+          <button class="text-alu-btn text-2xl hover:bg-alu-three border-b-2 border-alu-btn py-4">BTN3 BTN</button>
+
+        </div>
+      
+        <div class="flex flex-col bg-alu-main w-full h-full">
+      <div class="pl-96 mt-24 h-screen">
+      {% block content %}
+      content
+      {% endblock %}
+      </div>
+
+
+      <!-- This is the footer element -->
+      <footer class="text-center bg-alu-main border-t-2 border-t-alu-red py-2 h-full pl-96">
+        <div class="container p-6 text-gray-80 ">
+          
+          <!-- Seperate the footer into two sections -->
+          <div class="grid grid-cols-2 gap-4">
+            <div class="mb-6 md:mb-0">
+              <h5 class="font-medium mb-2 uppercase">About</h5>
+      
+              <p class="mb-4">
+                Just a small side project here.
+                
+              </p>
+            </div>
+      
+            <div class="mb-6 md:mb-0">
+              <h5 class="font-medium mb-2 uppercase">Section2</h5>
+      
+              <p class="mb-4">
+                Section2 content
+              </p>
+            </div>
+          </div>
+        </div>
+      
+        <div class="text-center text-gray-700 p-4" style="background-color: rgba(0, 0, 0, 0.2);">
+          © 2023 Copyright:
+          <a class="text-gray-800" href="">LAI</a>
+        </div>
+      </footer>
+    </div>
+  </div>
+    </body>
+</html>
