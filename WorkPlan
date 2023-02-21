@@ -8,17 +8,16 @@ Version 1.0
     iii. backend framework maybe? :::Django already a backend framework and we use tailwindcss as frontend, React next time maybe
 1.  Construct core app
     i.base html to extend :::HALF WAY THROUGH
-    ii. topbar,
-        sidebar maybe,
-        and footer
+    ii. topbar, !DONE!
+        sidebar maybe, !DONE!
+        and footer !DONE! (POSTION TO FIX)
 2.  Construct item(single todo list) app
     decide a attributes list:
-        i.
-        ii.
+        !DONE!
 3.  Construct sub-item(an entry of todo list) app
 4.  Construct userprofile? app
-    i. sign up 
-    ii. log in
+    i. sign up !DONE!
+    ii. log in !DONE!
     iii. log out
     iv. user page
     v. authentication part

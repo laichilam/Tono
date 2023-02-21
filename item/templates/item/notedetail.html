@@ -1,0 +1,36 @@
+{% extends 'core/base.html' %}
+{%load static%}
+{%block title%}Note detail{%endblock%}
+
+{%block content%}
+<div class="px-12 pb-32 pt-12 h-full w-full">    
+    <div class="flex flex-col gap-8 bg-alu-main h-full w-full border-alu-btn px-16 py-8 border-4 rounded-3xl">
+        <!--group first three attribute cards-->
+        <div class="grid grid-flow-col w-1/2 gap-2">
+            <div class="flex gap-2 items-center text-center">
+                <p class="text-alu-red text-3xl text-bold text-alu-neutral bg-alu-btn rounded-2xl whitespace-nowrap py-2 px-6">Note Name: </p>
+                <p class="text-alu-red text-3xl text-bold text-alu-neutral bg-alu-netural rounded-2xl py-2 px-20 whitespace-nowrap w-full">{{note.name}}</p>
+            </div>
+            <div class="flex gap-2 items-center text-center">
+                <p class="text-alu-red text-3xl text-bold text-alu-neutral bg-alu-btn rounded-2xl whitespace-nowrap py-2 px-6">Note ID: </p>
+                <p class="text-alu-red text-3xl text-bold text-alu-neutral bg-alu-netural rounded-2xl py-2 px-8 w-full">{{note.id}}</p>
+            </div>
+            <div class="flex gap-2 items-center text-center">
+                <p class="text-alu-red text-3xl text-bold text-alu-neutral bg-alu-btn rounded-2xl whitespace-nowrap py-2 px-6">Priority: </p>
+                <p class="text-alu-red text-3xl text-bold text-alu-neutral bg-alu-netural rounded-2xl py-2 px-8 w-full">{{note.priority}}</p>
+            </div>
+        </div>
+
+
+        <div class="flex flex-col gap-4">
+            <p class="text-alu-red text-3xl text-start text-bold text-alu-neutral bg-alu-btn rounded-2xl py-2 px-6 whitespace-nowrap">Note Details: </p>
+            <p class="text-alu-red text-3xl text-bold text-alu-neutral bg-alu-netural rounded-2xl py-32 px-8 ">{{note.detail}}</p>
+        </div>
+        <div class="flex justify-between items-baseline">
+            <a href="/notes" class=" bg-alu-three rounded-xl text-alu-btn px-8 py-4 w-32 text-center">Back</a>
+            <a href="{%url 'deletenote' note.id%}"class="bg-alu-three rounded-xl text-alu-btn px-8 py-4 w-32 text-center">Delete</a>
+        </div>
+</div>
+
+</div>
+{%endblock%}

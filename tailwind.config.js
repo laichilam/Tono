@@ -2,8 +2,8 @@
 module.exports = {
   content: [
     'core/templates/core/*.html',
-    'userprofile/templates/userprofile/*.html'
-
+    'userprofile/templates/userprofile/*.html',
+    'item/templates/item/*.html',
   ],
   theme: {
     extend: {
@@ -16,5 +16,7 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('flowbite/plugin'),
+  ],
 };

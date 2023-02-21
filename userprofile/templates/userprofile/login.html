@@ -7,7 +7,7 @@ login content
 <!--form for register-->
 <form method="post" action='.'>
     {% csrf_token %}
-    
+    {{form.as_p}}
     <button class="mx-4 my-4 px-4 py-4 bg-alu-red text-alu-btn rounded-2xl">Log in</button>
 </form>
 {%endblock%}

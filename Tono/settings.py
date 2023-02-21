@@ -27,6 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['chilam097.pythoneverywhere.com','127.0.0.1']
 
+LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = 'login'
+LOGOUT_REDIRECT_URL = '/'
 
 # Application definition
 

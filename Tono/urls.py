@@ -14,8 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.contrib.auth import views
 from django.urls import path 
 from userprofile.views import signup, login
+from item.views import newnote, notedetail, deletenote
 from core.views import index, base, notes
 from django.views.generic.base import RedirectView
 
@@ -24,6 +26,11 @@ urlpatterns = [
     path('', index, name='index'),
     path('base/', base, name='base'),
     path('notes/',notes,name='notes'),
-    path('sign-up/',signup,name='signup'),
-    path('log-in/',login,name='login')
+    path('sign-up/', signup, name='signup'),
+    path('log-in/', views.LoginView.as_view(template_name='userprofile/login.html'), name='login'),
+    path('log-out/',views.LogoutView.as_view(), name='logout'),
+    #url structure
+    path('newnote/',newnote,name='newnote'),
+    path('<int:pk>/', notedetail, name='notedetail'),
+    path('<int:pk>/delete/', deletenote, name='deletenote'),
 ]
