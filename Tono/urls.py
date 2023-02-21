@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path 
+from userprofile.views import signup, login
 from core.views import index, base, notes
 from django.views.generic.base import RedirectView
 
@@ -22,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
     path('base/', base, name='base'),
-    path('notes/',notes,name='notes')
-
+    path('notes/',notes,name='notes'),
+    path('sign-up/',signup,name='signup'),
+    path('log-in/',login,name='login')
 ]

@@ -1,0 +1,13 @@
+{%extends 'core/base.html'%}
+{%load static%}
+{%block title%}login{%endblock%}
+
+{%block content%}
+login content
+<!--form for register-->
+<form method="post" action='.'>
+    {% csrf_token %}
+    
+    <button class="mx-4 my-4 px-4 py-4 bg-alu-red text-alu-btn rounded-2xl">Log in</button>
+</form>
+{%endblock%}

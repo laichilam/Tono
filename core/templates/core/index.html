@@ -7,32 +7,31 @@
 <div class="bg-alu-main px-8">
 
     <!--a grid for summary and dad jokes and further use-->
-    <div class="inline-grid grid-cols-2 h-full mt-32 gap-12">
+    <div class="inline-grid grid-cols-2 mt-16 gap-12">
 
             <!--a brief summary of data-->
-    <a href='#' class="grid bg-alu-three border-2 h-72 text-center rounded-lg hover:animate-pulse">
-        <img src="{% static '/images/coffee100.png' %}" class="justify-self-center py-2" alt="coffeeLogo"></img>
+    <a href='#' class="grid bg-alu-three border-2 h-80 text-center rounded-lg hover:animate-pulse">
+        <img src="{% static '/images/coffee100.png' %}" class="justify-self-center pt-6" alt="coffeeLogo"></img>
         <p class="text-xl text-semibold text-alu-btn">Getting tired? Here's a dad joke:</br>{{r}}</p>
     </a>
 
-    <a href='#' class="grid bg-alu-three border-2 h-72 text-center rounded-lg hover:animate-pulse">
-        <img src="{% static '/images/list.png' %}" class="justify-self-center h-24 w-24 mt-4" alt="listLogo"></img>
+    <a href='#' class="grid bg-alu-three border-2 h-80 text-center rounded-lg hover:animate-pulse">
+        <img src="{% static '/images/list.png' %}" width="100" height="100" class="justify-self-center pt-6" alt="listLogo"></img>
         <p class="text-3xl text-semibold text-alu-btn px-4">You have {{sum}} notes in total, </br>hard work makes the dream work!</p>
     </a>
     
-    <a href='#' class="grid bg-alu-three border-2 h-72 text-center rounded-lg hover:animate-pulse">
-        <img src="{% static '/images/checklist100.png' %}" class="justify-self-center h-24 w-24 mt-4" alt="checklistLogo"></img>
+    <a href='#' class="grid bg-alu-three border-2 h-80 text-center rounded-lg hover:animate-pulse">
+        <img src="{% static '/images/checklist100.png' %}" class="justify-self-center pt-6" alt="checklistLogo"></img>
         <p class="text-3xl text-semibold text-alu-btn px-4">These days you have completed {{fin}} tasks and {{unfin}} to go.</p>
     </a>
 
-    <a href='#' class="grid bg-alu-three border-2 h-72 text-center rounded-lg hover:animate-pulse">
-        <img src="{% static '/images/team100.png' %}" class="justify-self-center py-2" alt="teamLogo"></img>
-        <p class="text-3xl text-bold text-alu-btn py-2 px-4">Join a room. </br>Team work makes the dream work!</p>
+    <a href='#' class="grid bg-alu-three border-2 h-80 text-center rounded-lg hover:animate-pulse">
+        <img src="{% static '/images/team100.png' %}" class="justify-self-center pt-6" alt="teamLogo"></img>
+        <p class="text-3xl text-bold text-alu-btn px-4">Join a room. </br>Team work makes the dream work!</p>
     </a>
 
     </div>
 
 </div>
-<a target="_blank" href="https://icons8.com/icon/eZLBUovU50qY/coffee-cup">Coffee cup</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
 
 {%endblock%}

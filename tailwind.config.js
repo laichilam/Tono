@@ -2,6 +2,7 @@
 module.exports = {
   content: [
     'core/templates/core/*.html',
+    'userprofile/templates/userprofile/*.html'
 
   ],
   theme: {
