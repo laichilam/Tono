@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'userprofile',
     'core',
     'item',
+    'room',
 ]
 
 MIDDLEWARE = [

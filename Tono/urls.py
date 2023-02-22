@@ -18,6 +18,7 @@ from django.contrib.auth import views
 from django.urls import path 
 from userprofile.views import signup, login
 from item.views import newnote, notedetail, deletenote
+from room.views import new_room, all_room
 from core.views import index, base, notes
 from django.views.generic.base import RedirectView
 
@@ -33,4 +34,6 @@ urlpatterns = [
     path('newnote/',newnote,name='newnote'),
     path('<int:pk>/', notedetail, name='notedetail'),
     path('<int:pk>/delete/', deletenote, name='deletenote'),
+    path('room/new', new_room, name='newroom'),
+    path('room/all', all_room, name='allroom'),
 ]
