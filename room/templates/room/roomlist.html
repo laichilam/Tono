@@ -1,5 +1,5 @@
 {% extends 'core/base.html' %}
-
+{%load static%}
 {%block title%}Roomlist Here{%endblock%}
 
 
@@ -7,4 +7,21 @@
 
 <h1 class="mb-6 text-3xl">Showing all rooms</h1>
 
+<div class="grid grid-cols-1 px-8 py-8 gap-6 bg-yellow-50 ">
+    {%for room in rooms%}
+        <a href="{%url 'roomdetail' room.id%}" class="text-center rounded-xl hover:bg-alu-btn bg-alu-netural ease-in duration-300">
+
+        <p class="text-start text-3xl text-semibold text-yellow-500 mb-4 px-8 py-4 rounded-2xl bg-alu-btn">{{room.name}}</p>
+        <p class="text-start text-xl text-red-300 mt-4 mb-4 px-2 whitespace-normal">* {{room.code}}</p>
+        <p class="text-end text-xl text-red-500 p-2">Owner: {{room.created_by}}</p>
+        </a>
+    {%endfor%}
+    </div>
+
+<div class="fixed bottom-4 lg:w-3/4 md:w1-/2 right-4">
+    <a href="{%url 'newroom'%}" class="flex float-right bg-alu-three items-center rounded-2xl py-2 px-4 shadow-md hover:animate-pulse">
+        <img src="{% static '/images/add100.png' %}" width="56" height="56" class="justify-self-center " alt="addBtn"></img>
+        <h1 class="text-2xl text-alu-btn p-2">New Room</h1>
+    </a>
+</div>
 {%endblock%}

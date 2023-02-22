@@ -1,34 +1,29 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib import messages
+from django.contrib.auth.models import User
 from .models import room, roommessage
-from .forms import roommessageform
+from .forms import roommessageform, roomform
 # Create your views here.
 #def new_room(request, code):
+
+@login_required
 def new_room(request):
-    c = "ABCDABCD"
-    roommes = room.objects.filter(code='ABCDABCD').filter(members__in=[request.user.id])
-
-    if roommes:
-        pass
+    form = roomform()
     if request.method == 'POST':
-        form = roommessageform(request.POST)
-        
+        form = roomform(request.POST)
+
         if form.is_valid():
-            rm = room.objects.create(code=c)
-            rm.members.add(request.user)
+            rm = form.save(commit=False)
+            rm.created_by = request.user
             rm.save()
-
-            rmes = form.save(commit=False)
-            rmes.room = rm
-            rmes.created_by = request.user
-            rmes.save()
-
-            return redirect('index')
+            rm.members.add(request.user)
+            return redirect('roomlist')
     else:
-        form = roommessageform()
-    return render(request, 'room/new.html',{
-        'form': form
-    })
+        form = roomform()
+    return render(request, 'room/newroom.html',{
+            'form': form
+        })
 
 @login_required
 def all_room(request):
@@ -36,4 +31,11 @@ def all_room(request):
 
     return render(request,'room/roomlist.html', {
         'rooms':rooms
+    })
+
+def roomdetail(request, pk):
+    r = get_object_or_404(room, members__in = [request.user.id], pk=pk)
+    
+    return render(request,'room/roomdetail.html',{
+        'room':r
     })

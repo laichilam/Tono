@@ -1,0 +1,27 @@
+{% extends 'core/base.html' %}
+
+{%block title%}Room detail here{%endblock%}
+
+
+{%block content%}
+<div class="px-12 pb-32 pt-12 h-full w-full">    
+    <div class="flex flex-col gap-8 bg-alu-main h-full w-full border-alu-btn px-16 py-8 border-4 rounded-3xl">
+        <!--group first three attribute cards-->
+        <div class="grid grid-flow-col w-1/2 gap-2">
+            <div class="flex gap-2 items-center text-center">
+                <p class="text-alu-red text-3xl text-bold text-alu-neutral bg-alu-btn rounded-2xl whitespace-nowrap py-2 px-6">Note Name: </p>
+                <p class="text-alu-red text-3xl text-bold text-alu-neutral bg-alu-netural rounded-2xl py-2 px-20 whitespace-nowrap w-full">{{room.name}}</p>
+            </div>
+            <div class="flex gap-2 items-center text-center">
+                <p class="text-alu-red text-3xl text-bold text-alu-neutral bg-alu-btn rounded-2xl whitespace-nowrap py-2 px-6">Note ID: </p>
+                <p class="text-alu-red text-3xl text-bold text-alu-neutral bg-alu-netural rounded-2xl py-2 px-8 w-full">{{room.id}}</p>
+            </div>
+            <div class="flex gap-2 items-center text-center">
+                <p class="text-alu-red text-3xl text-bold text-alu-neutral bg-alu-btn rounded-2xl whitespace-nowrap py-2 px-6">Priority: </p>
+                <p class="text-alu-red text-3xl text-bold text-alu-neutral bg-alu-netural rounded-2xl py-2 px-8 w-full">{{room.code}}</p>
+            </div>
+        </div>
+</div>
+
+</div>
+{%endblock%}
