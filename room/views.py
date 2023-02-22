@@ -35,7 +35,38 @@ def all_room(request):
 
 def roomdetail(request, pk):
     r = get_object_or_404(room, members__in = [request.user.id], pk=pk)
-    
+    messages = roommessage.objects.filter(room = r).order_by('created_at')
+
+    if request.method =='POST':
+        form = roommessageform(request.POST)
+        if form.is_valid():
+            mes = form.save(commit=False)
+            mes.room = r
+            mes.created_by = request.user
+            mes.save()
+            return redirect('roomdetail', pk=pk)
+    else:    
+        form = roommessageform()
+
     return render(request,'room/roomdetail.html',{
-        'room':r
+        'room' : r,
+        'form' : form,
+        'room_messages' : messages,
+    })
+
+def newmes(request, pk):
+    if request.method =='POST':
+        form = roommessageform(request.POST)
+        if form.is_valid():
+            mes = form.save(commit=False)
+            mes.room = room.objects.filter(pk=pk)
+            mes.created_by = request.user
+            mes.save()
+            return redirect('.')
+    else:    
+        form = roommessageform()
+
+    return render(request,'room/roomdetail.html',{
+        'form': form,
+        'rid': pk,
     })

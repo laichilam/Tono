@@ -4,24 +4,45 @@
 
 
 {%block content%}
-<div class="px-12 pb-32 pt-12 h-full w-full">    
-    <div class="flex flex-col gap-8 bg-alu-main h-full w-full border-alu-btn px-16 py-8 border-4 rounded-3xl">
-        <!--group first three attribute cards-->
-        <div class="grid grid-flow-col w-1/2 gap-2">
-            <div class="flex gap-2 items-center text-center">
-                <p class="text-alu-red text-3xl text-bold text-alu-neutral bg-alu-btn rounded-2xl whitespace-nowrap py-2 px-6">Note Name: </p>
-                <p class="text-alu-red text-3xl text-bold text-alu-neutral bg-alu-netural rounded-2xl py-2 px-20 whitespace-nowrap w-full">{{room.name}}</p>
-            </div>
-            <div class="flex gap-2 items-center text-center">
-                <p class="text-alu-red text-3xl text-bold text-alu-neutral bg-alu-btn rounded-2xl whitespace-nowrap py-2 px-6">Note ID: </p>
-                <p class="text-alu-red text-3xl text-bold text-alu-neutral bg-alu-netural rounded-2xl py-2 px-8 w-full">{{room.id}}</p>
-            </div>
-            <div class="flex gap-2 items-center text-center">
-                <p class="text-alu-red text-3xl text-bold text-alu-neutral bg-alu-btn rounded-2xl whitespace-nowrap py-2 px-6">Priority: </p>
-                <p class="text-alu-red text-3xl text-bold text-alu-neutral bg-alu-netural rounded-2xl py-2 px-8 w-full">{{room.code}}</p>
-            </div>
+<div class="pl-24 pr-24 w-full">    
+
+    <div class="w-full py-8">
+        <div class="flex gap-2 items-center text-center">
+            <p class="text-alu-red text-3xl text-bold text-alu-neutral bg-alu-btn rounded-2xl py-2 px-6 h-fit">{{room.code}} </p>
+            <p class="text-alu-red text-3xl text-bold text-alu-neutral bg-alu-netural rounded-2xl py-2 px-8 w-full overflow-clip">{{room.name}}</p>
         </div>
-</div>
+    </div>
+    <!--REFERENCE:https://stackoverflow.com/questions/66416614/how-to-create-scrollable-element-in-tailwind-without-a-scrollbar-->
+    <div class="flex flex-col gap-8 bg-alu-main max-h-50s w-full border-alu-btn px-16 py-8 border-t-4 border-b-4 rounded-md overflow-scroll [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] ">
+                <!--Messages Here-->
+        {%for mes in room_messages%}
+            <div class="flex gap-2 items-center text-center">
+                <p class="text-alu-red text-3xl text-bold text-alu-neutral bg-alu-three rounded-2xl py-2 px-6 h-fit">{{mes.created_by}}:</p>
+                <p class="text-alu-red text-3xl text-bold text-alu-neutral bg-alu-netural rounded-2xl py-2 px-8 overflow-clip">{{mes.content}}</p>
+            </div>
+        {%endfor%}
+    </div>
+<!--Form Here-->
+    <div class="py-6 px-6 items-center">    
+        <form name="roommesform" method="POST" action=".">
+            {% csrf_token %}
+            <div class="flex items-center text-center space-y-4 w-full">
+            {{ form.as_p}}
+            </div>
+    
+            {% if form.errors or form.non_field_errors %}
+            <div class="mb-3 p-6 bg-red-100 rounded-xl">
+                {% for field in form %}
+                    {{ field.errors }}
+                {% endfor %}
+    
+                {{ form.non_field_errors }}
+            </div>
+            {% endif %}
+    
+            <button type="submit" name="roommespost" class="mx-4 mt-4 mb-32 px-8 py-4 bg-alu-red text-alu-btn rounded-2xl" >Send</button>
+        </form>
+    </div>
 
 </div>
 {%endblock%}

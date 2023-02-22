@@ -9,11 +9,12 @@
 
 <div class="grid grid-cols-1 px-8 py-8 gap-6 bg-yellow-50 ">
     {%for room in rooms%}
-        <a href="{%url 'roomdetail' room.id%}" class="text-center rounded-xl hover:bg-alu-btn bg-alu-netural ease-in duration-300">
 
-        <p class="text-start text-3xl text-semibold text-yellow-500 mb-4 px-8 py-4 rounded-2xl bg-alu-btn">{{room.name}}</p>
-        <p class="text-start text-xl text-red-300 mt-4 mb-4 px-2 whitespace-normal">* {{room.code}}</p>
-        <p class="text-end text-xl text-red-500 p-2">Owner: {{room.created_by}}</p>
+        <a href="{%url 'roomdetail' room.id%}" class="flex w-full text-center items-center rounded-xl hover:bg-alu-btn bg-alu-netural ease-in duration-300">
+
+        <p class="text-start text-3xl text-semibold text-yellow-500 px-8 py-4 rounded-2xl bg-alu-btn">{{room.code}}</p>
+        <p class="text-start text-xl text-red-300 mt-4 mb-4 px-2 whitespace-nowrap">{{room.name}}</p>
+        <p class="text-end text-xl text-red-500 p-2 w-full float-right">Owner: {{room.created_by}}</p>
         </a>
     {%endfor%}
     </div>

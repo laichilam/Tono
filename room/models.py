@@ -8,7 +8,8 @@ class room(models.Model):
     modified_at = models.DateTimeField(auto_now_add=True)
     created_by = models.ForeignKey(User, related_name='roomowner', on_delete=models.CASCADE)
     members = models.ManyToManyField(User, related_name='room')
-
+    def __str__(self):
+        return(self.code)
     class Meta:
         ordering = ('modified_at',)
 
