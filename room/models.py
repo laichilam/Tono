@@ -3,7 +3,8 @@ from django.contrib.auth.models import User
 # Create your models here.
 class room(models.Model):
     name = models.TextField(max_length=80)
-    code = models.CharField(max_length=8, unique=True)
+    #code = models.CharField(max_length=8, unique=True)
+    code = models.CharField(max_length=8)
     created_at = models.DateTimeField(auto_now=True)
     modified_at = models.DateTimeField(auto_now_add=True)
     created_by = models.ForeignKey(User, related_name='roomowner', on_delete=models.CASCADE)

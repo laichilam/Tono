@@ -18,3 +18,8 @@ class roomform(forms.ModelForm):
     class Meta:
         model = room
         fields = ('name','code',)
+
+class joinform(forms.ModelForm):
+    class Meta:
+        model = room
+        fields = ('code',)

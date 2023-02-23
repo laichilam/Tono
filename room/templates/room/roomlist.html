@@ -19,10 +19,20 @@
     {%endfor%}
     </div>
 
-<div class="fixed bottom-4 lg:w-3/4 md:w1-/2 right-4">
-    <a href="{%url 'newroom'%}" class="flex float-right bg-alu-three items-center rounded-2xl py-2 px-4 shadow-md hover:animate-pulse">
-        <img src="{% static '/images/add100.png' %}" width="56" height="56" class="justify-self-center " alt="addBtn"></img>
-        <h1 class="text-2xl text-alu-btn p-2">New Room</h1>
-    </a>
+
+<div class="flex pl-4">
+    <div class="fixed bottom-4 lg:w-3/4 md:w1-/2">
+        <a href="{%url 'joinroom'%}" class="flex float-left bg-alu-three items-center rounded-2xl py-2 px-4 shadow-md hover:animate-pulse">
+            <img src="{% static '/images/add100.png' %}" width="56" height="56" class="justify-self-center " alt="addBtn"></img>
+            <h1 class="text-2xl text-alu-btn p-2">Join Room</h1>
+        </a>
+    </div>
+
+    <div class="fixed bottom-4 lg:w-3/4 md:w1-/2 right-4">
+        <a href="{%url 'newroom'%}" class="flex float-right bg-alu-three items-center rounded-2xl py-2 px-4 shadow-md hover:animate-pulse">
+            <img src="{% static '/images/add100.png' %}" width="56" height="56" class="justify-self-center " alt="addBtn"></img>
+            <h1 class="text-2xl text-alu-btn p-2">New Room</h1>
+        </a>
+</div>
 </div>
 {%endblock%}

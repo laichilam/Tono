@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from django.contrib.auth.models import User
 from .models import room, roommessage
-from .forms import roommessageform, roomform
+from .forms import roommessageform, roomform, joinform
 # Create your views here.
 #def new_room(request, code):
 
@@ -22,6 +22,24 @@ def new_room(request):
     else:
         form = roomform()
     return render(request, 'room/newroom.html',{
+            'form': form
+        })
+
+@login_required
+def join_room(request):
+    form = joinform()
+    if request.method == 'POST':
+        form = joinform(request.POST)
+        if form.is_valid():
+            c = form.cleaned_data['code']
+            print("CODE HERE")
+            print(c)
+            r = get_object_or_404(room,code=c)
+            r.members.add(request.user)
+            return redirect('roomlist')
+    else:
+        form = joinform()
+    return render(request, 'room/joinroom.html',{
             'form': form
         })
 
