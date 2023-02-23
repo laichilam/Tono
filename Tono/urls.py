@@ -18,13 +18,14 @@ from django.contrib.auth import views
 from django.urls import path 
 from userprofile.views import signup, login
 from item.views import newnote, notedetail, deletenote
-from room.views import new_room, all_room, roomdetail
+from room.views import new_room, all_room, roomdetail, join_room
 from core.views import index, base, notes
 from django.views.generic.base import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
+    path('index/', index, name='index'),
     path('base/', base, name='base'),
     path('notes/',notes,name='notes'),
     path('sign-up/', signup, name='signup'),
@@ -35,6 +36,7 @@ urlpatterns = [
     path('<int:pk>/', notedetail, name='notedetail'),
     path('<int:pk>/delete/', deletenote, name='deletenote'),
 
+    path('joinroom', join_room, name='joinroom'),
     path('newroom', new_room, name='newroom'),
     path('allroom', all_room, name='roomlist'),
     path('room/<int:pk>/', roomdetail, name='roomdetail'),
